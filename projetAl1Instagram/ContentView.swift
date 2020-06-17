@@ -13,8 +13,12 @@ struct ContentView: View {
     
     var body: some View {
                 
-        List(postRows.posts) { post in
-            PostRow(post : post)
+        VStack{
+            Text("Instagrammation")
+            
+            List(postRows.posts) { post in
+                PostRow(post : post)
+            }
         }
         
     }

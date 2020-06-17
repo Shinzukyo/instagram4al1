@@ -14,7 +14,6 @@ class PostRows : ObservableObject {
     
     
     init() {
-        print("ishere")
         getPosts()
     }
     
