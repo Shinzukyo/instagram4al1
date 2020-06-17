@@ -9,8 +9,14 @@
 import SwiftUI
 
 struct ContentView: View {
+    @ObservedObject var postRows : PostRows = PostRows()
+    
     var body: some View {
-        Text("Hello, World!")
+                
+        List(postRows.posts) { post in
+            PostRow(post : post)
+        }
+        
     }
 }
 

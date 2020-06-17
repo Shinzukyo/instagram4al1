@@ -7,3 +7,21 @@
 //
 
 import Foundation
+import SwiftUI
+
+class PostRows : ObservableObject {
+    @Published var posts : [Post] = []
+    
+    
+    init() {
+        print("ishere")
+        getPosts()
+    }
+    
+    func getPosts(){
+        let postApiService : PostAPIService = PostAPIService()
+        postApiService.getAll { (postArray) in
+            self.posts = postArray
+        }
+    }
+}
