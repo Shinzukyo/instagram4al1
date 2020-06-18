@@ -18,12 +18,8 @@ struct SelectedImageView: View {
     
     var body: some View {
         Image(uiImage: imageLoader.data != nil ? UIImage(data:imageLoader.data!)! : UIImage())
-            .renderingMode(.original)
-            .resizable()
-            .aspectRatio(contentMode: .fit)
-            .scaledToFit()
-            .padding(.leading, -20)
-            .padding(.trailing, -20)
+        .resizable()
+        .aspectRatio(contentMode: .fit)
     }
 }
 

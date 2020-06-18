@@ -21,13 +21,11 @@ struct ImageView: View {
         VStack {
             NavigationLink(destination: SelectedImageView(imageLoader:imageLoader)){
                 Image(uiImage: imageLoader.data != nil ? UIImage(data:imageLoader.data!)! : UIImage())
-                    .renderingMode(.original)
                     .resizable()
-                    .aspectRatio(contentMode: .fit)
                     .scaledToFit()
+                    .frame(width: 400, height: 400, alignment: .center)
                     .padding(.leading, -20)
                     .padding(.trailing, -20)
-                    // .frame(width:350, height:400)
                 }
         }
     }

@@ -14,15 +14,24 @@ struct ContentView: View {
     var body: some View {
                 
         VStack{
-            Text("Instagrammation")
-            
             NavigationView{
                 List(postRows.posts) { post in
                     PostRow(post : post)
                 }
+                .navigationBarTitle("Instagrammation")
+                .navigationBarItems(trailing: HStack {
+                    Button("Home") {
+                        print("Home")
+                    }
+                    Button("Mur") {
+                        print("Mur")
+                    }
+                    Button("Profil") {
+                        print("Profil")
+                    }
+                })
             }
         }
-        
     }
 }
 
