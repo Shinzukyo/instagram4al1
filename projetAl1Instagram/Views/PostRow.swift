@@ -35,7 +35,6 @@ struct PostRow: View {
             }
             
             // Post
-        
             ImageView(withURL :self.post.pathImg)
             
             // Barre horizontale

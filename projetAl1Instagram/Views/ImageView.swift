@@ -19,15 +19,16 @@ struct ImageView: View {
 
     var body: some View {
         VStack {
-            Image(uiImage: imageLoader.data != nil ? UIImage(data:imageLoader.data!)! : UIImage())
-                .renderingMode(.original)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .scaledToFit()
-                .padding(.leading, -20)
-                .padding(.trailing, -20)
-                // .frame(width:350, height:400)
+            NavigationLink(destination: SelectedImageView(imageLoader:imageLoader)){
+                Image(uiImage: imageLoader.data != nil ? UIImage(data:imageLoader.data!)! : UIImage())
+                    .renderingMode(.original)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .scaledToFit()
+                    .padding(.leading, -20)
+                    .padding(.trailing, -20)
+                    // .frame(width:350, height:400)
+                }
         }
     }
-
 }

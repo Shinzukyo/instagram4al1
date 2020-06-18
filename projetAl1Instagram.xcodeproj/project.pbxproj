@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8B578939249B78410026ACAF /* SelectedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B578938249B78410026ACAF /* SelectedImageView.swift */; };
 		8BBD0573249A55F100F7D69D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBD0572249A55F100F7D69D /* AppDelegate.swift */; };
 		8BBD0575249A55F100F7D69D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBD0574249A55F100F7D69D /* SceneDelegate.swift */; };
 		8BBD0577249A55F100F7D69D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBD0576249A55F100F7D69D /* ContentView.swift */; };
@@ -41,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8B578938249B78410026ACAF /* SelectedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedImageView.swift; sourceTree = "<group>"; };
 		8BBD056F249A55F100F7D69D /* projetAl1Instagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = projetAl1Instagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BBD0572249A55F100F7D69D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8BBD0574249A55F100F7D69D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 				8BBD05A3249A573600F7D69D /* PostRow.swift */,
 				8BBD05A8249A5C0400F7D69D /* ImageView.swift */,
 				8BBD05B1249A70FD00F7D69D /* PostRows.swift */,
+				8B578938249B78410026ACAF /* SelectedImageView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -316,6 +319,7 @@
 				8BBD05A7249A5A8100F7D69D /* ImageLoader.swift in Sources */,
 				8BBD05A4249A573600F7D69D /* PostRow.swift in Sources */,
 				8BBD05AC249A662600F7D69D /* Post.swift in Sources */,
+				8B578939249B78410026ACAF /* SelectedImageView.swift in Sources */,
 				8BBD0577249A55F100F7D69D /* ContentView.swift in Sources */,
 				8BBD05B2249A70FD00F7D69D /* PostRows.swift in Sources */,
 			);

@@ -16,8 +16,10 @@ struct ContentView: View {
         VStack{
             Text("Instagrammation")
             
-            List(postRows.posts) { post in
-                PostRow(post : post)
+            NavigationView{
+                List(postRows.posts) { post in
+                    PostRow(post : post)
+                }
             }
         }
         
