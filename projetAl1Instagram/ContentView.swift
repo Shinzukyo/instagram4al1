@@ -10,15 +10,31 @@ import SwiftUI
 
 struct ContentView: View {
     @ObservedObject var postRows : PostRows = PostRows()
+    @State var openCreateForm = false
     
     var body: some View {
-                
-        TabView {
+        UINavigationBar.appearance().backgroundColor = .white;
+        return TabView {
             NavigationView{
                 List(postRows.posts) { post in
                     PostRow(post : post)
+                        .onAppear {
+                            if post.id == self.postRows.posts.first?.id {
+                                self.postRows.getPosts()
+                            }	
+                    }
                 }
-                .navigationBarTitle("Instagrammation")
+                .navigationBarTitle("")
+                .navigationBarItems(
+                    leading: Text("Selfish").font(.largeTitle).bold(),
+                    trailing: Button(action: {
+                        self.openCreateForm.toggle()
+                    }) {
+                        Image(systemName: "plus.circle")
+                    }.sheet(isPresented: $openCreateForm) {
+                        AddPicture(postRows: self.postRows)
+                    }
+                )
             }.tabItem {
                 Image(systemName: "house.fill")
                 Text("Home")
