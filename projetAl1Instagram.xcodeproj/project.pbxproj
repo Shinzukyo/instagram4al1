@@ -27,6 +27,7 @@
 		8BBD05AC249A662600F7D69D /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBD05AB249A662600F7D69D /* Post.swift */; };
 		8BBD05B0249A68C000F7D69D /* PostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBD05AF249A68C000F7D69D /* PostService.swift */; };
 		8BBD05B2249A70FD00F7D69D /* PostRows.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBD05B1249A70FD00F7D69D /* PostRows.swift */; };
+		8BD1E93B24BA8333002874BC /* AddPicture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD1E93A24BA8333002874BC /* AddPicture.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		8BBD05AB249A662600F7D69D /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		8BBD05AF249A68C000F7D69D /* PostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostService.swift; sourceTree = "<group>"; };
 		8BBD05B1249A70FD00F7D69D /* PostRows.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRows.swift; sourceTree = "<group>"; };
+		8BD1E93A24BA8333002874BC /* AddPicture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPicture.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +168,7 @@
 		8BBD05A2249A571300F7D69D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8BD1E93A24BA8333002874BC /* AddPicture.swift */,
 				8BBD05A3249A573600F7D69D /* PostRow.swift */,
 				8BBD05A8249A5C0400F7D69D /* ImageView.swift */,
 				8BBD05B1249A70FD00F7D69D /* PostRows.swift */,
@@ -331,6 +334,7 @@
 				8B86E99224BA71C4007FD608 /* CGUView.swift in Sources */,
 				8B86E98E24BA3BB0007FD608 /* PrivacyView.swift in Sources */,
 				8BBD05A9249A5C0400F7D69D /* ImageView.swift in Sources */,
+				8BD1E93B24BA8333002874BC /* AddPicture.swift in Sources */,
 				8BBD0573249A55F100F7D69D /* AppDelegate.swift in Sources */,
 				8BBD0575249A55F100F7D69D /* SceneDelegate.swift in Sources */,
 				8BBD05B0249A68C000F7D69D /* PostService.swift in Sources */,
