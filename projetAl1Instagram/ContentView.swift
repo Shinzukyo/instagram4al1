@@ -39,6 +39,16 @@ struct ContentView: View {
                 Image(systemName: "house.fill")
                 Text("Home")
             }
+            NavigationView{	
+                SettingsView()
+                .navigationBarTitle("Settings")
+            }.tabItem {
+                Image(systemName: "gear")
+                Text("Settings")
+            }
+            
+
+
         }
     }
 }
