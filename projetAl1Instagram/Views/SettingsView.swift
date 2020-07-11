@@ -19,7 +19,13 @@ struct SettingsView: View {
             NavigationLink(destination: PrivacyView()){
                 Text("Privacy")
             }
-        }
+        }.onAppear {
+           UITableView.appearance().separatorStyle = .none
+           // can update any other property like tableFooterView etc
+        }.onDisappear {
+           //revert appearance so that it does not break other UI
+           UITableView.appearance().separatorStyle = .singleLine
+        }.navigationBarTitle("Settings")
         
     }
 }

@@ -12,7 +12,23 @@ import SwiftUI
 struct PrivacyView: View {
     
     var body: some View {
-        Text("Privacy")
+        VStack{
+            List{
+                NavigationLink(destination: BlockedAccountView()){
+                    Text("Blocked Account")
+                }
+                NavigationLink(destination: CguView()){
+                    Text("CGU")
+                }
+            }.onAppear {
+               UITableView.appearance().separatorStyle = .none
+               // can update any other property like tableFooterView etc
+            }.onDisappear {
+               //revert appearance so that it does not break other UI
+               UITableView.appearance().separatorStyle = .singleLine
+            }.navigationBarTitle("Privacy")
+            
+        }
         
     }
 }
