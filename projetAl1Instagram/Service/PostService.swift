@@ -10,7 +10,7 @@ import Foundation
 
 class PostAPIService {
     func getAll(completion: @escaping ([Post]) -> Void) {
-        URLSession.shared.dataTask(with: URL(string: "http://192.168.1.21:3000/posts")!) { (data, res, err) in
+        URLSession.shared.dataTask(with: URL(string: "http://localhost:3000/posts")!) { (data, res, err) in
             DispatchQueue.main.sync {
                 guard let d = data,
                     let json = try? JSONSerialization.jsonObject(with: d, options: .allowFragments) as? [[String: Any]] else {

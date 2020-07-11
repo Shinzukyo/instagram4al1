@@ -12,6 +12,8 @@ import SwiftUI
 struct ImageView: View {
     @ObservedObject var imageLoader:ImageLoader
     @State var image:UIImage = UIImage()
+    @State var showingDetail = false
+    
 
     init(withURL url:String) {
         imageLoader = ImageLoader(urlString:url)
@@ -22,10 +24,14 @@ struct ImageView: View {
             Image(uiImage: imageLoader.data != nil ? UIImage(data:imageLoader.data!)! : UIImage())
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-            NavigationLink(destination: SelectedImageView(imageLoader:imageLoader)){
-                EmptyView()
-            }.buttonStyle(PlainButtonStyle())
+                .edgesIgnoringSafeArea(.top)
+                .edgesIgnoringSafeArea(.bottom)
+                .clipped()
+                .onTapGesture {
+                    self.showingDetail.toggle()
+            }.sheet(isPresented: $showingDetail) {
+                SelectedImageView(imageLoader: self.imageLoader)
+            }
         }
-        
     }
 }

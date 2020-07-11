@@ -32,10 +32,10 @@ struct PostRow: View {
             }.frame(minWidth: 0, maxWidth: .infinity)
             
             // Post
-            VStack {
+            VStack{
                 ImageView(withURL: post.pathImg)
-            }.frame(minWidth: 0, maxWidth: .infinity)
-            
+            }
+                                        
             // Barre horizontale
             HStack(alignment: .center) {
                 
@@ -43,8 +43,8 @@ struct PostRow: View {
                 .resizable()
                 .scaledToFit()
                 .frame(width: 20, height: 20)
-                .padding(5)
-                
+                .padding(5)	
+                    
                 Image(systemName: "message")
                 .resizable()
                 .scaledToFit()
@@ -63,6 +63,7 @@ struct PostRow: View {
                 .resizable()
                 .scaledToFit()
                 .frame(width: 20, height: 20)
+                
             }
               
             VStack(alignment: .leading){
