@@ -10,7 +10,7 @@ import Foundation
 
 class PostAPIService {
     func getAll(completion: @escaping ([Post]) -> Void) {
-        URLSession.shared.dataTask(with: URL(string: "http://localhost:3000/posts")!) { (data, res, err) in
+        URLSession.shared.dataTask(with: URL(string: "http://192.168.1.21:3000/posts")!) { (data, res, err) in
             DispatchQueue.main.sync {
                 guard let d = data,
                     let json = try? JSONSerialization.jsonObject(with: d, options: .allowFragments) as? [[String: Any]] else {
@@ -27,7 +27,6 @@ class PostAPIService {
         return json.compactMap { (row) -> Post in
             Post(username: row["username"] as! String, pathImg: row["pathImg"] as! String, description: row["description"] as! String, date: row["date"] as! String, likes: row["likes"] as! Int, localisation: row["localisation"] as! String, id: row["id"] as! Int)
         }
-        return []
     }
     
 }

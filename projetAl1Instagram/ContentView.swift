@@ -13,23 +13,15 @@ struct ContentView: View {
     
     var body: some View {
                 
-        VStack{
+        TabView {
             NavigationView{
                 List(postRows.posts) { post in
                     PostRow(post : post)
                 }
                 .navigationBarTitle("Instagrammation")
-                .navigationBarItems(trailing: HStack {
-                    Button("Home") {
-                        print("Home")
-                    }
-                    Button("Mur") {
-                        print("Mur")
-                    }
-                    Button("Profil") {
-                        print("Profil")
-                    }
-                })
+            }.tabItem {
+                Image(systemName: "house.fill")
+                Text("Home")
             }
         }
     }

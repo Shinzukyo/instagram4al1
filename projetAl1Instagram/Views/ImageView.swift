@@ -18,15 +18,14 @@ struct ImageView: View {
     }
 
     var body: some View {
-        VStack {
+        ZStack {
+            Image(uiImage: imageLoader.data != nil ? UIImage(data:imageLoader.data!)! : UIImage())
+                .resizable()
+                .aspectRatio(contentMode: .fit)
             NavigationLink(destination: SelectedImageView(imageLoader:imageLoader)){
-                Image(uiImage: imageLoader.data != nil ? UIImage(data:imageLoader.data!)! : UIImage())
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 400, height: 400, alignment: .center)
-                    .padding(.leading, -20)
-                    .padding(.trailing, -20)
-                }
+                EmptyView()
+            }.buttonStyle(PlainButtonStyle())
         }
+        
     }
 }

@@ -21,7 +21,7 @@ struct PostRow: View {
             // Header
             HStack {
                 Image(systemName:  "person")
-                VStack(alignment: .leading){
+                VStack{
                     Text(self.post.username)
                         .font(Font.system(size: 13.5))
                     Text(self.post.localisation)
@@ -29,13 +29,12 @@ struct PostRow: View {
                 }
                 Spacer()
                 Image(systemName: "ellipsis")
-                .resizable()
-                .scaledToFit()
-                .frame(width: 20, height: 20)
-            }
+            }.frame(minWidth: 0, maxWidth: .infinity)
             
             // Post
-            ImageView(withURL :self.post.pathImg)
+            VStack {
+                ImageView(withURL: post.pathImg)
+            }.frame(minWidth: 0, maxWidth: .infinity)
             
             // Barre horizontale
             HStack(alignment: .center) {
@@ -44,16 +43,19 @@ struct PostRow: View {
                 .resizable()
                 .scaledToFit()
                 .frame(width: 20, height: 20)
+                .padding(5)
                 
                 Image(systemName: "message")
                 .resizable()
                 .scaledToFit()
                 .frame(width: 20, height: 20)
+                .padding(5)
                 
                 Image(systemName: "paperplane")
                 .resizable()
                 .scaledToFit()
                 .frame(width: 20, height: 20)
+                .padding(5)
                 
                 Spacer()
                 
@@ -74,6 +76,6 @@ struct PostRow: View {
                             .lineLimit(4)
                             .font(Font.system(size: 12.5))
                             .foregroundColor(.init(white: 0.2))
-        }
+        }.frame(minWidth: 0, maxWidth: .infinity)
     }
 }
