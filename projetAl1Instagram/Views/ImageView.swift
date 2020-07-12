@@ -12,21 +12,26 @@ import SwiftUI
 struct ImageView: View {
     @ObservedObject var imageLoader:ImageLoader
     @State var image:UIImage = UIImage()
+    @State var showingDetail = false
+    
 
     init(withURL url:String) {
         imageLoader = ImageLoader(urlString:url)
     }
 
     var body: some View {
-        VStack {
-            NavigationLink(destination: SelectedImageView(imageLoader:imageLoader)){
-                Image(uiImage: imageLoader.data != nil ? UIImage(data:imageLoader.data!)! : UIImage())
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 400, height: 400, alignment: .center)
-                    .padding(.leading, -20)
-                    .padding(.trailing, -20)
-                }
+        ZStack {
+            Image(uiImage: imageLoader.data != nil ? UIImage(data:imageLoader.data!)! : UIImage())
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .edgesIgnoringSafeArea(.top)
+                .edgesIgnoringSafeArea(.bottom)
+                .clipped()
+                .onTapGesture {
+                    self.showingDetail.toggle()
+            }.sheet(isPresented: $showingDetail) {
+                SelectedImageView(imageLoader: self.imageLoader)
+            }
         }
     }
 }

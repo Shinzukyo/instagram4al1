@@ -9,8 +9,9 @@
 import Foundation
 
 class PostAPIService {
+    final var url = "http://192.168.1.21:3000"
     func getAll(completion: @escaping ([Post]) -> Void) {
-        URLSession.shared.dataTask(with: URL(string: "http://localhost:3000/posts")!) { (data, res, err) in
+        URLSession.shared.dataTask(with: URL(string: url + "/posts?_sort=id&_order=desc")!) { (data, res, err) in
             DispatchQueue.main.sync {
                 guard let d = data,
                     let json = try? JSONSerialization.jsonObject(with: d, options: .allowFragments) as? [[String: Any]] else {
@@ -22,12 +23,25 @@ class PostAPIService {
         }.resume()
     }
     
+    func addPost(username: String, location: String, imagePath: String, description: String) {
+        let urlAddPost = URL(string: url + "/posts")
+        guard let requestUrl = urlAddPost else {fatalError()}
+        
+        var request = URLRequest(url: requestUrl)
+        request.httpMethod = "POST"
+        
+        let postString = "username=" + username + "&pathImg=" + imagePath + "&description=" + description + "&localisation=" + location
+        
+        request.httpBody = postString.data(using: String.Encoding.utf8)
+        let task = URLSession.shared.dataTask(with: request)
+        task.resume()
+    }
+    
     func convertJsonToPosts(json : [[String : Any]]) -> [Post]{
         
         return json.compactMap { (row) -> Post in
-            Post(username: row["username"] as! String, pathImg: row["pathImg"] as! String, description: row["description"] as! String, date: row["date"] as! String, likes: row["likes"] as! Int, localisation: row["localisation"] as! String, id: row["id"] as! Int)
+            Post(username: row["username"] as! String, pathImg: row["pathImg"] as! String, description: row["description"] as! String, localisation: row["localisation"] as! String, id: row["id"] as! Int)
         }
-        return []
     }
     
 }

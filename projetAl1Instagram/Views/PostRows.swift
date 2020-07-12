@@ -23,4 +23,5 @@ class PostRows : ObservableObject {
             self.posts = postArray
         }
     }
+
 }

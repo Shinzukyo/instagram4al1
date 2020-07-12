@@ -10,27 +10,45 @@ import SwiftUI
 
 struct ContentView: View {
     @ObservedObject var postRows : PostRows = PostRows()
+    @State var openCreateForm = false
     
     var body: some View {
-                
-        VStack{
+        UINavigationBar.appearance().backgroundColor = .white;
+        return TabView {
             NavigationView{
                 List(postRows.posts) { post in
                     PostRow(post : post)
+                        .onAppear {
+                            if post.id == self.postRows.posts.first?.id {
+                                self.postRows.getPosts()
+                            }	
+                    }
                 }
-                .navigationBarTitle("Instagrammation")
-                .navigationBarItems(trailing: HStack {
-                    Button("Home") {
-                        print("Home")
+                .navigationBarTitle("")
+                .navigationBarItems(
+                    leading: Text("Selfish").font(.largeTitle).bold(),
+                    trailing: Button(action: {
+                        self.openCreateForm.toggle()
+                    }) {
+                        Image(systemName: "plus.circle")
+                    }.sheet(isPresented: $openCreateForm) {
+                        AddPicture(postRows: self.postRows)
                     }
-                    Button("Mur") {
-                        print("Mur")
-                    }
-                    Button("Profil") {
-                        print("Profil")
-                    }
-                })
+                )
+            }.tabItem {
+                Image(systemName: "house.fill")
+                Text("Home")
             }
+            NavigationView{	
+                SettingsView()
+                .navigationBarTitle("Settings")
+            }.tabItem {
+                Image(systemName: "gear")
+                Text("Settings")
+            }
+            
+
+
         }
     }
 }
