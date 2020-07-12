@@ -26,7 +26,7 @@ struct ContentView: View {
                 }
                 .navigationBarTitle("")
                 .navigationBarItems(
-                    leading: Text("Selfish").font(.largeTitle).bold(),
+                    leading: Text("Instagrammation").font(.largeTitle).bold(),
                     trailing: Button(action: {
                         self.openCreateForm.toggle()
                     }) {

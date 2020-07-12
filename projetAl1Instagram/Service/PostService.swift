@@ -9,7 +9,7 @@
 import Foundation
 
 class PostAPIService {
-    final var url = "http://192.168.1.21:3000"
+    final var url = "http://localhost:3000"
     func getAll(completion: @escaping ([Post]) -> Void) {
         URLSession.shared.dataTask(with: URL(string: url + "/posts?_sort=id&_order=desc")!) { (data, res, err) in
             DispatchQueue.main.sync {
